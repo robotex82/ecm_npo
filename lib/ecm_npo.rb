@@ -1,3 +1,5 @@
+require 'citier'
+
 require 'ecm/npo/engine'
 require 'ecm/npo/configuration'
 require 'ecm/npo/routing'

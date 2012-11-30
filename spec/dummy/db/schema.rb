@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130013418) do
+ActiveRecord::Schema.define(:version => 20121130023306) do
+
+  create_table "ecm_npo_ledger_items", :force => true do |t|
+    t.string   "identifier"
+    t.datetime "issued_at"
+    t.text     "description"
+    t.string   "inheritance_column_name"
+    t.string   "gross_amount_cents"
+    t.string   "gross_amount_currency"
+    t.integer  "issuer_id"
+    t.string   "issuer_type"
+    t.integer  "recipient_id"
+    t.string   "recipient_type"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "ecm_npo_members", :force => true do |t|
     t.string   "firstname"

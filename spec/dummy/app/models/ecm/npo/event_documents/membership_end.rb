@@ -4,6 +4,10 @@ module Ecm::Npo
     belongs_to :member
     belongs_to :membership_begin
 
+    # attributes
+    attr_accessible :member,
+                    :membership_begin
+
     # citier
     acts_as_citier
 

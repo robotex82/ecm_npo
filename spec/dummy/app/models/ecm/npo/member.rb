@@ -32,6 +32,10 @@ module Ecm::Npo
     def account
       Account.new(revenues.map(&:to_account_item), expenses.map(&:to_account_item))
     end
+
+    def memberships
+      membership_begins.map(&:to_membership)
+    end
   end
 end
 

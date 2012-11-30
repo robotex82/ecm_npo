@@ -25,6 +25,15 @@ module Ecm::Npo
       end
     end
 
+    context 'memberships' do
+      it 'should have memberships' do
+        member = Member.new
+        membership_begin = member.membership_begins.build(:point_in_time => 2.years.ago)
+        membership_end = member.membership_ends.build(:point_in_time => 1.year.from_now, :membership_begin => membership_begin)
+        member.memberships.first.should be_a(Membership)
+      end
+    end
+
     context 'validations' do
       it { should validate_presence_of :birthdate }
       it { should validate_presence_of :firstname }

@@ -10,8 +10,8 @@ class CreateEcmNpoLedgerItems < ActiveRecord::Migration
       t.string :inheritance_column_name
 
       # money
-      t.string :gross_amount_cents
-      t.string :gross_amount_currency
+      t.integer :gross_amount_cents
+      t.string :currency
 
       # associations
       t.integer :issuer_id

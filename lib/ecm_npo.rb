@@ -1,4 +1,5 @@
 require 'citier'
+require 'money-rails'
 
 require 'ecm/npo/engine'
 require 'ecm/npo/configuration'

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130023306) do
+ActiveRecord::Schema.define(:version => 20121130031401) do
 
   create_table "ecm_npo_ledger_items", :force => true do |t|
     t.string   "identifier"
     t.datetime "issued_at"
     t.text     "description"
     t.string   "inheritance_column_name"
-    t.string   "gross_amount_cents"
-    t.string   "gross_amount_currency"
+    t.integer  "gross_amount_cents"
+    t.string   "currency"
     t.integer  "issuer_id"
     t.string   "issuer_type"
     t.integer  "recipient_id"
@@ -39,5 +40,13 @@ ActiveRecord::Schema.define(:version => 20121130023306) do
   end
 
   add_index "ecm_npo_members", ["user_id"], :name => "index_ecm_npo_members_on_user_id"
+
+  create_table "ecm_npo_organizations", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_self"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

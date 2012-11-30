@@ -18,6 +18,18 @@ module Ecm::Npo
     validates :birthdate, :presence => true
     validates :firstname, :presence => true
     validates :lastname, :presence => true
+
+    def revenues
+      recieved_payments
+    end
+
+    def expenses
+      issued_payments
+    end
+
+    def account
+      Account.new(revenues.map(&:to_account_item), expenses.map(&:to_account_item))
+    end
   end
 end
 

@@ -1,3 +1,5 @@
+require 'date_validator'
+require 'rails_sql_views'
 require 'citier'
 require 'money-rails'
 

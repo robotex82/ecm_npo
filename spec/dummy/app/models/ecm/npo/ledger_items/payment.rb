@@ -1,3 +1,5 @@
-class Ecm::Npo::LedgerItems::Payment < Ecm::Npo::LedgerItem
+module Ecm::Npo
+  class LedgerItems::Payment < LedgerItem
+  end
 end
 

@@ -19,6 +19,9 @@ gem "jquery-rails"
 # Patched guard rails
 gem 'guard-rails',  :git => 'git://github.com/robotex82/guard-rails.git', :branch => 'better-engine-support'
 
+#  Patched sql views
+gem 'rails_sql_views', :git =>  'git://github.com/DouweM/rails_sql_views.git'
+
 unless ENV['TRAVIS_RUBY_VERSION'].nil?
   gem 'pg'
   gem 'mysql2'

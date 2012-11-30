@@ -11,21 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130031401) do
+ActiveRecord::Schema.define(:version => 20121130162112) do
+
+  create_table "ecm_npo_event_documents", :force => true do |t|
+    t.datetime "point_in_time"
+    t.string   "type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "ecm_npo_event_documents_membership_begins", :force => true do |t|
+    t.integer "member_id"
+  end
+
+  create_table "ecm_npo_event_documents_membership_ends", :force => true do |t|
+    t.integer "member_id"
+    t.integer "membership_begin_id"
+  end
 
   create_table "ecm_npo_ledger_items", :force => true do |t|
     t.string   "identifier"
     t.datetime "issued_at"
     t.text     "description"
-    t.string   "inheritance_column_name"
+    t.string   "type"
     t.integer  "gross_amount_cents"
     t.string   "currency"
     t.integer  "issuer_id"
     t.string   "issuer_type"
     t.integer  "recipient_id"
     t.string   "recipient_type"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "ecm_npo_members", :force => true do |t|
@@ -47,6 +63,25 @@ ActiveRecord::Schema.define(:version => 20121130031401) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_view "view_ecm_npo_event_documents_membership_begins", "SELECT ecm_npo_event_documents.id, point_in_time,type,created_at,updated_at,member_id FROM ecm_npo_event_documents, ecm_npo_event_documents_membership_begins WHERE ecm_npo_event_documents.id = ecm_npo_event_documents_membership_begins.id", :force => true do |v|
+    v.column :id
+    v.column :point_in_time
+    v.column :type
+    v.column :created_at
+    v.column :updated_at
+    v.column :member_id
+  end
+
+  create_view "view_ecm_npo_event_documents_membership_ends", "SELECT ecm_npo_event_documents.id, point_in_time,type,created_at,updated_at,member_id,membership_begin_id FROM ecm_npo_event_documents, ecm_npo_event_documents_membership_ends WHERE ecm_npo_event_documents.id = ecm_npo_event_documents_membership_ends.id", :force => true do |v|
+    v.column :id
+    v.column :point_in_time
+    v.column :type
+    v.column :created_at
+    v.column :updated_at
+    v.column :member_id
+    v.column :membership_begin_id
   end
 
 end

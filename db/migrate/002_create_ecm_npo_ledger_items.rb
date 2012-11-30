@@ -6,7 +6,7 @@ class CreateEcmNpoLedgerItems < ActiveRecord::Migration
       t.text :description
 
       # citier
-      t.string :inheritance_column_name
+      t.string :type
 
       # money
       t.integer :gross_amount_cents

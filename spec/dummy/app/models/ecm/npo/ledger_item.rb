@@ -1,4 +1,8 @@
 class Ecm::Npo::LedgerItem < ActiveRecord::Base
+  # associations
+  belongs_to :issuer, :polymorphic => true
+  belongs_to :recipient, :polymorphic => true
+
   # attributes
   attr_accessible :description,
                   :gross_amount_cents,

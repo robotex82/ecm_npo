@@ -14,7 +14,8 @@ module Ecm::Npo
                     :firstname,
                     :lastname,
                     :nickname,
-                    :slug
+                    :slug,
+                    :user_id
 
     # validations
     validates :birthdate, :presence => true
@@ -33,8 +34,16 @@ module Ecm::Npo
       Account.new(revenues.map(&:to_account_item), expenses.map(&:to_account_item))
     end
 
+    def account_balance
+      account.balance
+    end
+
     def memberships
       membership_begins.map(&:to_membership)
+    end
+
+    def to_s
+      "#{firstname} #{lastname}"
     end
   end
 end

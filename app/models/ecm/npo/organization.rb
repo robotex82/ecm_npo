@@ -25,5 +25,13 @@ module Ecm::Npo
     def account
       Account.new(revenues.map(&:to_account_item), expenses.map(&:to_account_item))
     end
+
+    def account_balance
+      account.balance
+    end
+
+    def to_s
+      name
+    end
   end
 end

@@ -19,8 +19,11 @@ gem "jquery-rails"
 # Patched guard rails
 gem 'guard-rails',  :git => 'git://github.com/robotex82/guard-rails.git', :branch => 'better-engine-support'
 
-#  Patched sql views
+# Patched sql views
 gem 'rails_sql_views', :git =>  'git://github.com/DouweM/rails_sql_views.git'
+
+# Edge active admin
+gem 'activeadmin', :git =>  'git://github.com/gregbell/active_admin.git'
 
 unless ENV['TRAVIS_RUBY_VERSION'].nil?
   gem 'pg'

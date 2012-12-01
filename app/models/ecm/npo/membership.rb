@@ -1,5 +1,8 @@
 module Ecm::Npo
   class Membership
+    include ActiveModel::Conversion
+    extend ActiveModel::Naming
+
     attr_accessor :begin_date, :end_date
 
     def initialize(begin_date, end_date = nil)
@@ -18,6 +21,10 @@ module Ecm::Npo
     def length
       return 1.0 / 0.0 if end_date.nil?
       end_date - begin_date
+    end
+
+    def persisted?
+      false
     end
   end
 end

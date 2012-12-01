@@ -10,5 +10,9 @@ require 'ecm/npo/routing'
 module Ecm
   module Npo
     extend Configuration
+
+    def self.table_name_prefix
+      'ecm_npo_'
+    end
   end
 end

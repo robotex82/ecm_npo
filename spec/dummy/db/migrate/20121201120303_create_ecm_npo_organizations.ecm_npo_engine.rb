@@ -1,4 +1,4 @@
-# This migration comes from ecm_npo_engine (originally 3)
+# This migration comes from ecm_npo_engine (originally 4)
 class CreateEcmNpoOrganizations < ActiveRecord::Migration
   def change
     create_table :ecm_npo_organizations do |t|

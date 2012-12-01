@@ -1,4 +1,4 @@
-# This migration comes from ecm_npo_engine (originally 5)
+# This migration comes from ecm_npo_engine (originally 6)
 class CreateEcmNpoEventDocumentsMembershipBegins < ActiveRecord::Migration
   def migrate(direction)
     super

@@ -4,6 +4,9 @@ module Ecm::Npo
     belongs_to :member
     has_one :membership_end
 
+    # attributes
+    attr_accessible :member_id
+
     # citier
     acts_as_citier
 

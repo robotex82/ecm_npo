@@ -1,4 +1,4 @@
-# This migration comes from ecm_npo_engine (originally 4)
+# This migration comes from ecm_npo_engine (originally 5)
 class CreateEcmNpoEventDocuments < ActiveRecord::Migration
   def change
     create_table :ecm_npo_event_documents do |t|

@@ -6,6 +6,7 @@ module Ecm::Npo
 
     # attributes
     attr_accessible :member,
+                    :member_id,
                     :membership_begin
 
     # citier

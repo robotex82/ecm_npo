@@ -16,6 +16,7 @@ ActiveAdmin.register Ecm::Npo::Member do
     column :lastname
     column :birthdate
     column :account_balance
+    column :active?
     default_actions
   end
 
@@ -56,6 +57,7 @@ ActiveAdmin.register Ecm::Npo::Member do
       row :user
       row :birthdate
       row :account_balance
+      row :active?
       row :created_at
       row :updated_at
     end

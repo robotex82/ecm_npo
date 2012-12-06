@@ -38,6 +38,10 @@ module Ecm::Npo
       account.balance
     end
 
+    def active?
+      memberships.map(&:active?).include?(true)
+    end
+
     def memberships
       membership_begins.map(&:to_membership)
     end

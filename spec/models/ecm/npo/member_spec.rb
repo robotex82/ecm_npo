@@ -25,6 +25,23 @@ module Ecm::Npo
       end
     end
 
+    context 'age' do
+      it 'should calculate the correct age on the birthday' do
+        member = Member.new(:birthdate => 1.years.ago)
+        member.age.should eq(1)
+      end
+
+      it 'should calculate the correct age one day after birthday' do
+        member = Member.new(:birthdate => 1.years.ago - 1.day)
+        member.age.should eq(1)
+      end
+
+      it 'should calculate the correct age one day before birthday' do
+        member = Member.new(:birthdate => 1.years.ago + 1.day)
+        member.age.should eq(0)
+      end
+    end
+
     context 'memberships' do
       it 'should have memberships' do
         member = Member.new

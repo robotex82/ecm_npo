@@ -1,20 +1,21 @@
 ActiveAdmin.register Ecm::Npo::Member do
-  form do |f|                         
-    f.inputs do       
-      f.input :user                  
-      f.input :firstname               
+  form do |f|
+    f.inputs do
+      f.input :user
+      f.input :firstname
       f.input :nickname
       f.input :lastname
       f.input :birthdate, :as => :datepicker
-    end                               
-    f.actions                         
-  end  
+    end
+    f.actions
+  end
 
   index do
     selectable_column
     column :firstname
     column :lastname
     column :birthdate
+    column :age
     column :account_balance
     column :active?
     default_actions
@@ -56,6 +57,7 @@ ActiveAdmin.register Ecm::Npo::Member do
       row :lastname
       row :user
       row :birthdate
+      row :age
       row :account_balance
       row :active?
       row :created_at
@@ -63,3 +65,4 @@ ActiveAdmin.register Ecm::Npo::Member do
     end
   end
 end
+

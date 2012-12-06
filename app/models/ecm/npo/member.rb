@@ -42,6 +42,14 @@ module Ecm::Npo
       memberships.map(&:active?).include?(true)
     end
 
+    def age
+      if (Time.zone.now.month < birthdate.month) || (Time.zone.now.month == birthdate.month && birthdate.day > Time.zone.now.day)
+        Time.zone.now.year - birthdate.year - 1
+      else
+        Time.zone.now.year - birthdate.year
+      end
+    end 
+
     def memberships
       membership_begins.map(&:to_membership)
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201120306) do
+ActiveRecord::Schema.define(:version => 20121209031621) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20121201120306) do
     t.string   "recipient_type"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "ecm_npo_ledger_items_claims_membership_fees", :force => true do |t|
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.integer  "member_id"
   end
 
   create_table "ecm_npo_ledger_items_payments", :force => true do |t|
@@ -122,6 +128,25 @@ ActiveRecord::Schema.define(:version => 20121201120306) do
     v.column :updated_at
     v.column :member_id
     v.column :membership_begin_id
+  end
+
+  create_view "view_ecm_npo_ledger_items_claims_membership_fees", "SELECT ecm_npo_ledger_items.id, identifier,issued_at,description,type,gross_amount_cents,currency,issuer_id,issuer_type,recipient_id,recipient_type,created_at,updated_at,begin_date,end_date,member_id FROM ecm_npo_ledger_items, ecm_npo_ledger_items_claims_membership_fees WHERE ecm_npo_ledger_items.id = ecm_npo_ledger_items_claims_membership_fees.id", :force => true do |v|
+    v.column :id
+    v.column :identifier
+    v.column :issued_at
+    v.column :description
+    v.column :type
+    v.column :gross_amount_cents
+    v.column :currency
+    v.column :issuer_id
+    v.column :issuer_type
+    v.column :recipient_id
+    v.column :recipient_type
+    v.column :created_at
+    v.column :updated_at
+    v.column :begin_date
+    v.column :end_date
+    v.column :member_id
   end
 
   create_view "view_ecm_npo_ledger_items_payments", "SELECT ecm_npo_ledger_items.id, identifier,issued_at,description,type,gross_amount_cents,currency,issuer_id,issuer_type,recipient_id,recipient_type,created_at,updated_at,claim_id FROM ecm_npo_ledger_items, ecm_npo_ledger_items_payments WHERE ecm_npo_ledger_items.id = ecm_npo_ledger_items_payments.id", :force => true do |v|

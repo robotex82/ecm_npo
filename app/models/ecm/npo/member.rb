@@ -4,6 +4,7 @@ module Ecm::Npo
     belongs_to :user
     has_many :membership_begins, :class_name => 'EventDocuments::MembershipBegin'
     has_many :membership_ends, :class_name => 'EventDocuments::MembershipEnd'
+    has_many :membership_fees, :class_name => 'LedgerItems::Claims::MembershipFee'
     has_many :issued_claims, :class_name => 'LedgerItems::Claim', :as => :issuer
     has_many :issued_payments, :class_name => 'LedgerItems::Payment', :as => :issuer
     has_many :recieved_claims, :class_name => 'LedgerItems::Claim', :as => :recipient

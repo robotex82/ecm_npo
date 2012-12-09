@@ -7,6 +7,7 @@ module Ecm::Npo
       it { should have_many :issued_payments }
       it { should have_many :membership_begins }
       it { should have_many :membership_ends }
+      it { should have_many :membership_fees }
       it { should have_many :recieved_claims }
       it { should have_many :recieved_payments }
     end

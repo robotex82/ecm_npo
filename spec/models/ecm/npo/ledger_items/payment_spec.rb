@@ -16,6 +16,14 @@ module Ecm::Npo::LedgerItems
       it { should belong_to :recipient }
     end
 
+    context 'descendants of claim' do
+      it 'should be accepted' do
+        payment = FactoryGirl.build(:ecm_npo_ledger_items_payment)
+        payment.claim = FactoryGirl.build(:ecm_npo_ledger_items_claims_membership_fee)
+        payment.should be_valid
+      end
+    end
+
     context 'gross_amount' do
       it 'should handle money' do
         payment = Payment.new
